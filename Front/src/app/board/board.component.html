@@ -1,0 +1,27 @@
+<div class="board">
+    <li>
+        <button mat-raised-button (click)="openAddTaskPopup()">Pick one</button>
+      </li>
+    <!-- Colunas de tarefas -->
+    <div class="column">
+        <h2>A fazer</h2>
+        <div *ngFor="let task of tasksTodo">
+            <!-- Exibir informações da task -->
+            {{ task.task }}
+        </div>
+    </div>
+    <div class="column">
+        <h2>Em Andamento</h2>
+        <div *ngFor="let task of tasksDoing">
+            <!-- Exibir informações da task -->
+            {{ task.task }}
+        </div>
+    </div>
+    <div class="column">
+        <h2>Concluído</h2>
+        <div *ngFor="let task of tasksDone" >
+            <!-- Exibir informações da task -->
+            {{ task.task }}
+        </div>
+    </div>
+</div>

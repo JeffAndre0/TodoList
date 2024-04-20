@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Adicionar Nova Tarefa</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Tarefa: </mat-label>
+    <input matInput [(ngModel)]="data.task">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Responsável: </mat-label>
+    <input matInput [(ngModel)]="data.responsible">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Prioridade: </mat-label>
+    <input matInput [(ngModel)]="data.priority">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status: </mat-label>
+    <input matInput [(ngModel)]="data.status">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Prazo: </mat-label>
+    <input matInput [(ngModel)]="data.deadline">
+  </mat-form-field>
+  
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data.task" cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>
