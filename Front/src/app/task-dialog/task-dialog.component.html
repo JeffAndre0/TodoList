@@ -2,7 +2,7 @@
 <mat-dialog-content>
   <mat-form-field>
     <mat-label>Tarefa: </mat-label>
-    <input matInput [(ngModel)]="data.task">
+    <input matInput [(ngModel)]="data.task" required>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Responsável: </mat-label>
@@ -27,5 +27,5 @@
 
 <mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data.task" cdkFocusInitial>Salvar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
 </mat-dialog-actions>
