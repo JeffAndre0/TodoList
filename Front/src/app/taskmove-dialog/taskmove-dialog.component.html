@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Novo Status:</h2>
+<mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Status: </mat-label>
+    <mat-select [(ngModel)]="data.status">
+      <mat-option value="1">A fazer</mat-option>
+      <mat-option value="2">Em Andamento</mat-option>
+      <mat-option value="3">Concluído</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+</mat-dialog-actions>

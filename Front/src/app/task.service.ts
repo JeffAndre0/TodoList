@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Task } from './model/task.model';
-import { DialogData } from './task-dialog/task-dialog.component';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,10 +17,10 @@ export class TaskService {
 
   
   postTask(task: Task): Observable<Task> {
-    // if (task.deadline !== null){
-    //   const deadlineString = task.deadline?.toString();
-    //   task.deadline = deadlineString.substring(0, 10);
-    // }
   return this.http.post<Task>(`${this.apiUrl}`, task);
+  }
+
+  putTask(task: Task): Observable<Task> {
+  return this.http.put<Task>(`${this.apiUrl}/${task.id}`, task);
   }
 }

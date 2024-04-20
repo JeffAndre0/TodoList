@@ -3,6 +3,7 @@ import { Task } from '../model/task.model';
 import { TaskService } from '../task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewDialog } from '../task-dialog/task-dialog.component';
+import { DialogChangeStatus } from '../taskmove-dialog/taskmove-dialog.component';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -46,21 +47,35 @@ export class BoardComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogOverviewDialog, {
       data: { titulo: 'Adicionar Tarefa' }
     });
-
     
     dialogRef.afterClosed().subscribe(result => {
       if (result){
           this.addTask(result);
         }
   });
-}
-
-
+  }
+  showMoveColumnDialog(task: Task, status: number): void {
+    const dialogRef = this.dialog.open(DialogChangeStatus, {
+      data: task
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if (result){
+          this.updateTask(result);
+        }
+  });
+  }
 
 addTask(newtask: Task) {
-  console.log ("deadline::::: " + newtask.deadline)
   this.taskService.postTask(newtask).subscribe(response => {
     console.log("Nova tarefa criada")
+    this.loadTasks();
+  })
+
+}
+updateTask(newtask: Task) {
+  this.taskService.putTask(newtask).subscribe(response => {
+    console.log("Tarefa Atualizada")
     this.loadTasks();
   })
 

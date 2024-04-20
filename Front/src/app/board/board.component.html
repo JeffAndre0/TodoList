@@ -2,26 +2,33 @@
     <a class="btnfos btnfos-3">
         <button class="btn1" mat-raised-button (click)="openAddTaskPopup()">Criar Nova Tarefa</button>
     </a>
+    
     <div class="columns-container">
         <div class="column">
             <h2>A fazer</h2>
-            <div *ngFor="let task of tasksTodo">
-                <!-- Exibir informações da task -->
-                {{ task.task }}
+            <div *ngFor="let task of tasksTodo" class="pedido-card" (click)="showMoveColumnDialog(task, 1)">
+                <p class="itens-pedido">{{ task.task }}</p>
+                <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
+                <p *ngIf="task.priority">Prioridade: {{ task.priority }}</p>
+                <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
             </div>
         </div>
         <div class="column">
             <h2>Em Andamento</h2>
-            <div *ngFor="let task of tasksDoing">
-                <!-- Exibir informações da task -->
-                {{ task.task }}
+            <div *ngFor="let task of tasksDoing" class="pedido-card" (click)="showMoveColumnDialog(task, 2)">
+                <p class="itens-pedido">{{ task.task }}</p>
+                <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
+                <p *ngIf="task.priority">Prioridade: {{ task.priority }}</p>
+                <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
             </div>
         </div>
         <div class="column">
             <h2>Concluído</h2>
-            <div *ngFor="let task of tasksDone" >
-                <!-- Exibir informações da task -->
-                {{ task.task }}
+            <div *ngFor="let task of tasksDone" class="pedido-card" (click)="showMoveColumnDialog(task, 3)">
+                <p class="itens-pedido">{{ task.task }}</p>
+                <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
+                <p *ngIf="task.priority">Prioridade: {{ task.priority }}</p>
+                <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
             </div>
         </div>
     </div>
