@@ -6,13 +6,11 @@ import { DialogOverviewDialog } from '../task-dialog/task-dialog.component';
 
 @Component({
   selector: 'app-board',
-  // standalone: true,
-  // imports: [NgFor, NgForm, NgModel],
   templateUrl: './board.component.html',
-  styleUrl: './board.component.css'
+  styleUrl: './board.component.css',
 })
 export class BoardComponent implements OnInit {
-  newTask = { task: '', responsible: '',priority:0,deadline:Date.now(), status: 1 }; // Novo objeto de tarefa
+  newTask = { task: '', responsible: '', priority:0, deadline:Date.now(), status: 1 };
   tasksTodo: Task[] = [];
   tasksDoing: Task[] = [];
   tasksDone: Task[] = [];
@@ -54,7 +52,6 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result){
           this.addTask(result);
-          console.log("Entrou no subs" )
         }
   });
 }
@@ -62,23 +59,11 @@ export class BoardComponent implements OnInit {
 
 
 addTask(newtask: Task) {
-  // Aqui você pode enviar o objeto this.newTask para a API
-  
-  console.log('Nova tarefa:', newtask.responsible);
-  // this.newTask = { task: '', responsible: '',priority:0,deadline:Date.now(), status: 1 };
-
+  console.log ("deadline::::: " + newtask.deadline)
   this.taskService.postTask(newtask).subscribe(response => {
-    console.log("Nova tarefa enviada")
+    console.log("Nova tarefa criada")
     this.loadTasks();
   })
-
-  // enviarPedido(pedido: any): void {
-  //   this.pedidoService.entregarPedido(pedido).subscribe(response => {
-  //     console.log("Pedido entregue");
-  //     this.carregarPedidos();
-  //     // Lógica após a alteração do status (atualização da lista, feedback ao usuário, etc.)
-  //   });
-  // }
 
 }
 }

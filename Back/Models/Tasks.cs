@@ -7,6 +7,6 @@ namespace Back.Models
         public string? responsible { get; set; }
         public int? priority { get; set; }
         public int? status { get; set; }
-        public DateOnly? deadline { get; set; }
+        public DateTime? deadline { get; set; }
     }
 }
