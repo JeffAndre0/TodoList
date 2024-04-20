@@ -3,7 +3,6 @@ import { Task } from '../model/task.model';
 import { TaskService } from '../task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewDialog } from '../task-dialog/task-dialog.component';
-
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
