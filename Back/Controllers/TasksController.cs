@@ -13,7 +13,10 @@ namespace Back.Controllers
         [HttpGet]
         [Route("tasks")]
         public async Task<IActionResult> Get([FromServices]AppDbContext dbContext){
-            var tasks = await dbContext.tasks.AsNoTracking().ToListAsync();
+                var tasks = await dbContext.tasks
+        .OrderBy(task => task.priority)
+        .AsNoTracking()
+        .ToListAsync();
             return Ok(tasks);
         }
         

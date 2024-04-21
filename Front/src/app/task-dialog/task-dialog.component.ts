@@ -17,7 +17,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 export interface DialogData {
     task: string | null;
     responsible: string | null;
-    priority: number | null;
+    priority: 1;
     status: number | null;
     deadline: Date | null;
   }
@@ -41,10 +41,13 @@ export interface DialogData {
     ],
   })
   export class DialogOverviewDialog {
+     priority = 1
     constructor(
       public dialogRef: MatDialogRef<DialogOverviewDialog>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    ) {}
+    ) {
+      this.data.priority = 1;
+    }
   
     onNoClick(): void {
       this.dialogRef.close();
