@@ -19,7 +19,7 @@ export interface DialogData {
     task: string | null;
     responsible: string | null;
     priority: number | null;
-    status: number | null;
+    status: number;
     deadline: Date | null;
   }
   
@@ -45,9 +45,16 @@ export interface DialogData {
     constructor(
       public dialogRef: MatDialogRef<DialogChangeStatus>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    ) {}
+    ) {
+      data.status = 1
+    }
   
     onNoClick(): void {
       this.dialogRef.close();
     }
-  }
+    
+    onChangeStatus(): void {
+      this.data.status = +this.data.status;
+    }
+
+}

@@ -1,12 +1,13 @@
 <div class="board">
     <a>
-        <button class="pedido-button" mat-raised-button (click)="openAddTaskPopup()">Criar Nova Tarefa</button>
+        <button class="add-button" mat-raised-button (click)="openAddTaskPopup()">Criar Nova Tarefa</button>
     </a>
-    
+
     <div class="columns-container">
         <div class="column">
             <h2>A fazer</h2>
-            <div *ngFor="let task of tasksTodo" class="pedido-card">
+            <div *ngFor="let task of tasksTodo" class="pedido-card"
+                [class.expired-deadline]="task.deadline && isDeadlineExpired(task.deadline)">
                 <div (click)="showMoveColumnDialog(task, 1)">
                     <p class="task-ct">{{ task.task }}</p>
                     <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
@@ -14,13 +15,14 @@
                     <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
                 </div>
                 <a>
-                    <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">Excluir</button>
+                    <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">🗑️</button>
                 </a>
             </div>
         </div>
         <div class="column">
             <h2>Em Andamento</h2>
-            <div *ngFor="let task of tasksDoing" class="pedido-card">
+            <div *ngFor="let task of tasksDoing" class="pedido-card"
+                [class.expired-deadline]="task.deadline && isDeadlineExpired(task.deadline)">
                 <div (click)="showMoveColumnDialog(task, 2)">
                     <p class="task-ct">{{ task.task }}</p>
                     <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
@@ -28,13 +30,13 @@
                     <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
                 </div>
                 <a>
-                    <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">Excluir</button>
+                    <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">🗑️</button>
                 </a>
             </div>
         </div>
         <div class="column">
             <h2>Concluído</h2>
-            <div *ngFor="let task of tasksDone" class="pedido-card" >
+            <div *ngFor="let task of tasksDone" class="pedido-card-done">
                 <div (click)="showMoveColumnDialog(task, 3)">
                     <p class="task-ct">{{ task.task }}</p>
                     <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
@@ -42,7 +44,7 @@
                     <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
                 </div>
                 <a>
-                    <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">Excluir</button>
+                    <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">🗑️</button>
                 </a>
             </div>
         </div>

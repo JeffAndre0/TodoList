@@ -1,53 +1,84 @@
 .board {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .columns-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 20px;
+  position: flex;
 }
 
 .column {
-    width: 30%;
+  width: 30%;
 }
 
 .md-button {
-    padding: 0 6px 0 6px;
-    margin: 6px 8px 6px 8px;
-    min-width: 88px;
-    border-radius: 3px;
-    font-size: 14px;
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration:none;
-    border: none;
-    outline: none;
-  }
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 88px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
 
 .pedido-card {
-    border: 1px solid rgb(0, 8, 234);
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 8px rgb(0, 8, 234);
-  }
-  .excluir-button {
-    border: 1px solid rgb(255, 0, 0);
-    border-radius: 8px;
-    padding: 15px;
-    right: auto;
-    margin-bottom: 15px;
-    background-color: rgb(255, 0, 0);
-    font-size: 1.2rem;
-  }
+  position: relative;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  /* box-shadow: 0 4px 8px rgb(0, 8, 234); */
+}
 
-    
-  .task-ct {
-    font-size: 1.2rem;
-    color: #040032;
-  }
+.excluir-button {
+  position: absolute;
+  bottom: 5px;
+  /* Ajuste o valor conforme necessário */
+  right: 5px;
+  /* Ajuste o valor conforme necessário */
+  background-color: transparent;
+  /* Remova o fundo para que o botão seja visível */
+  border: none;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+.add-button {
+  border: 1px solid rgb(4, 10, 121);
+  border-radius: 8px;
+  padding: 15px;
+  right: auto;
+  margin-bottom: 15px;
+  background-color: rgb(4, 10, 121);
+  font-size: 1.2rem;
+  color: whitesmoke;
+}
+
+
+.task-ct {
+  font-size: 1.2rem;
+  color: #040032;
+}
+
+.expired-deadline {
+  box-shadow: 0 4px 8px red;
+}
+
+.pedido-card-done {
+  position: relative;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-color: rgb(3, 137, 23);
+  box-shadow: 0 4px 8px rgb(3, 137, 23);
+}

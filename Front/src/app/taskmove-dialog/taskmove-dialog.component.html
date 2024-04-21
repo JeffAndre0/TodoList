@@ -3,7 +3,7 @@
 
   <mat-form-field>
     <mat-label>Status: </mat-label>
-    <mat-select [(ngModel)]="data.status">
+    <mat-select [(ngModel)]="data.status" (ngModelChange)="onChangeStatus()">
       <mat-option value="1">A fazer</mat-option>
       <mat-option value="2">Em Andamento</mat-option>
       <mat-option value="3">Concluído</mat-option>
@@ -11,7 +11,7 @@
   </mat-form-field>
 
 
-<mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
-</mat-dialog-actions>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+  </mat-dialog-actions>

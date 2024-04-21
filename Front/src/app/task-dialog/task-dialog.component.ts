@@ -18,7 +18,7 @@ export interface DialogData {
     task: string | null;
     responsible: string | null;
     priority: 1;
-    status: number | null;
+    status: number;
     deadline: Date | null;
   }
   

@@ -24,7 +24,7 @@
   <br>
   <mat-form-field>
     <mat-label>Prazo: </mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="data.deadline" required>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.deadline">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
