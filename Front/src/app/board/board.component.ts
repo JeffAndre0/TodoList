@@ -4,6 +4,7 @@ import { TaskService } from '../task.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogOverviewDialog } from '../task-dialog/task-dialog.component';
 import { DialogChangeStatus } from '../taskmove-dialog/taskmove-dialog.component';
+import { ConfirmacaoDialogComponent } from '../confirmacao-dialog/confirmacao-dialog.component';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -78,6 +79,25 @@ updateTask(newtask: Task) {
     console.log("Tarefa Atualizada")
     this.loadTasks();
   })
+}
+
+
+deleteTask(deltask:number) {
+  const dialogRef = this.dialog.open(ConfirmacaoDialogComponent, {
+    data: { titulo: 'Remover Tarefa' }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    
+    if (result){
+      console.log("resultado: " + deltask)
+        this.taskService.deleteTask(deltask).subscribe(response => {
+          console.log("Tarefa Removida")
+          this.loadTasks();
+});
+      }
+});
 
 }
+
 }
