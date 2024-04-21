@@ -53,8 +53,4 @@ export interface DialogData {
       this.dialogRef.close();
     }
     
-    onChangeStatus(): void {
-      this.data.status = +this.data.status;
-    }
-
 }

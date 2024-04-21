@@ -12,7 +12,8 @@
                     <p class="task-ct">{{ task.task }}</p>
                     <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
                     <p *ngIf="task.priority">Prioridade: {{ task.priority }}</p>
-                    <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
+                    <p *ngIf="task.deadline">Prazo: {{ task.deadline | date: 'dd/MM/yyyy' }}</p>
+
                 </div>
                 <a>
                     <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">🗑️</button>
@@ -27,7 +28,8 @@
                     <p class="task-ct">{{ task.task }}</p>
                     <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
                     <p *ngIf="task.priority">Prioridade: {{ task.priority }}</p>
-                    <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
+                    <p *ngIf="task.deadline">Prazo: {{ task.deadline | date: 'dd/MM/yyyy' }}</p>
+
                 </div>
                 <a>
                     <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">🗑️</button>
@@ -41,7 +43,8 @@
                     <p class="task-ct">{{ task.task }}</p>
                     <p *ngIf="task.responsible">Responsável: {{ task.responsible }}</p>
                     <p *ngIf="task.priority">Prioridade: {{ task.priority }}</p>
-                    <p *ngIf="task.deadline">Prazo: {{ task.deadline }}</p>
+                    <p *ngIf="task.deadline">Prazo: {{ task.deadline | date: 'dd/MM/yyyy' }}</p>
+
                 </div>
                 <a>
                     <button class="excluir-button" mat-raised-button (click)="deleteTask(task.id)">🗑️</button>
